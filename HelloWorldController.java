@@ -1,5 +1,5 @@
 package com.luv2code.springdemo.mvc;
-//import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +18,12 @@ public class HelloWorldController {
 	@RequestMapping("/processForm")
 	public String processForm(){
 		System.out.println("procesforom");
+		return "helloworld";
+	}
+	@RequestMapping("/processFormVersionTwo")
+	public String letsShoutDude(HttpServletRequest request, Model model){
+		String name = request.getParameter("studentName");
+		model.addAttribute("message", "yo!" + name.toUpperCase());
 		return "helloworld";
 	}
 	//binding request params 114
